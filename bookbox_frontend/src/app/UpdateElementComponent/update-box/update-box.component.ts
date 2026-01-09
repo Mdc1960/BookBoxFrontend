@@ -5,7 +5,7 @@ import { Box, CreatedBox } from '../../Interface/box';
 import { UpdateBoxService } from '../../service/update-box-service/update-box.service';
 import {Coordinates} from "../../Interface/coordinates";
 import { BoxService } from '../../service/box-service/box.service';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-update-box',
   standalone: true,
@@ -20,7 +20,8 @@ export class UpdateBoxComponent implements OnInit, AfterViewInit {
 
   constructor(
     private updateBoxService:UpdateBoxService,
-    private boxService: BoxService
+    private boxService: BoxService,
+    private router:Router
   ){}
 
   @ViewChild(BoxFormComponent)
@@ -54,9 +55,12 @@ export class UpdateBoxComponent implements OnInit, AfterViewInit {
       this.boxService.updateBox(this.boxToUpdate?.boxId, box).subscribe({
             next: (boxes) =>{
               alert("A box was successfully updated !");
+              this.router.navigateByUrl('/load-box');
             },
             error: (err) =>{
-              alert("Error while updating a box. Make sure you have provided all the required information.");
+              alert("Error while updating a box. Make sure you have provided all the required information." +
+                +"Or you may be not allowed to do this action {Only admin can }");
+              this.router.navigateByUrl('/load-box');
             }
           });
 

@@ -3,7 +3,7 @@ import { ReservationFormComponent } from '../../GlobalForms/reservation-form/res
 import {MatButtonModule} from '@angular/material/button';
 import {ReservationService} from '../../service/reservation-service/reservation.service';
 import { CreatedReservation } from '../../Interface/reservation';
-
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-reservation',
@@ -21,7 +21,8 @@ export class AddReservationComponent implements OnInit, AfterViewInit{
   reservationFormComponent!:ReservationFormComponent;
 
   constructor(
-    private reservationService: ReservationService
+    private reservationService: ReservationService,
+    private router : Router
   ){}
 
   createReservation(){
@@ -43,6 +44,8 @@ export class AddReservationComponent implements OnInit, AfterViewInit{
         this.reservationService.createReservation(createReservation).subscribe({
           next: (boxes) =>{
             alert("A new reservation was created !");
+            this.router.navigateByUrl('/load-reservation')
+
           },
           error: (err) =>{
             alert("Error while creating a box. Make sure you are provided all the required information.");

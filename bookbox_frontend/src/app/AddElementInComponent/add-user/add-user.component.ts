@@ -4,7 +4,7 @@ import { MatButton } from "@angular/material/button";
 import { UserFormComponent } from "../../GlobalForms/user-form/user-form.component";
 import { UserService } from "../../service/User-service/user.service";
 import { CreatedUser } from "../../Interface/user";
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-add-user',
   standalone: true,
@@ -20,7 +20,8 @@ export class AddUserComponent implements OnInit, AfterViewInit {
   @ViewChild(UserFormComponent)
   userFormComponent!: UserFormComponent;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,
+              private router : Router) {}
 
   createUser() {
     const name = this.userFormComponent.getAllInputValues().get("name")?.value;
@@ -36,6 +37,7 @@ export class AddUserComponent implements OnInit, AfterViewInit {
         next: () => {
           alert("A new user was created!");
           this.userFormComponent.resetForm();
+          this.router.navigateByUrl('load-user')
         },
         error: (err: any) => {
           console.error(err);

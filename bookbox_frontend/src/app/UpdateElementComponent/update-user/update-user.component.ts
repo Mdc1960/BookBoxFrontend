@@ -7,7 +7,6 @@ import {UpdatedUser, User} from "../../Interface/user";
 import {UserService} from "../../service/User-service/user.service";
 import {Router} from "@angular/router";
 import {UserFormUpdateComponent} from "../../GlobalForms/user-form-update/user-form-update.component";
-
 @Component({
   selector: 'app-update-user',
   standalone: true,
@@ -42,11 +41,12 @@ export class UpdateUserComponent implements OnInit, AfterViewInit {
       .subscribe({
         next: () => {
           alert('User updated successfully');
-          this.router.navigateByUrl('/users');
+          this.router.navigateByUrl('/load-user');
         },
         error: err => {
           console.error(err);
-          alert('Update failed');
+          alert('Update failed, You must be admin to be allowed');
+          this.router.navigateByUrl('/load-user');
         }
       });
   }

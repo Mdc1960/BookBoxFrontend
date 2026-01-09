@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="Merge branch 'main' of https://github.com/rdVirgo/BookBox_frontend&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;README.md&#10;#&#9;Readme.md">
-      <change afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-box/add-box.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-box/add-box.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-reservation/add-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-reservation/add-reservation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-user/add-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-user/add-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-box/update-box.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-box/update-box.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-reservation/update-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-reservation/update-reservation.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-user/update-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-user/update-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/service/reservation-service/reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/service/reservation-service/reservation.service.ts" afterDir="false" />
+    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +15,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Mdc1960&quot;
-  }
-}</component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPENED&quot;,
@@ -45,16 +31,14 @@
     &quot;second&quot;: &quot;f277b6a3-3a90-44d2-bcb4-c98f3729221c&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/rdVirgo/BookBox_frontend.git&quot;,
-    &quot;accountId&quot;: &quot;02644089-655a-4979-8cd8-ac4848923bf7&quot;
-  }
-}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="366lO828tzrKNWoz0ZkVXm4okML" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,7 +50,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/MERABTENE/Desktop/4A_polytech/bookbox_frontend&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -83,11 +67,11 @@
       <recent name="$PROJECT_DIR$/bookbox_frontend/src/Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service\update-user-service" />
+      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\Component" />
+      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\GlobalForms\user-form-update" />
       <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service" />
+      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service\update-user-service" />
       <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\GlobalForms\user-form" />
-      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service\User-service" />
-      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service\CoordinatesService" />
     </key>
   </component>
   <component name="RunManager">
@@ -102,6 +86,14 @@
       <option name="filePath" />
       <method v="2" />
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.26053.27" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.26053.27" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -126,6 +118,11 @@
       <workItem from="1766799402770" duration="4960000" />
       <workItem from="1766835223231" duration="5547000" />
       <workItem from="1766955619281" duration="600000" />
+      <workItem from="1767007816667" duration="652000" />
+      <workItem from="1767525272229" duration="925000" />
+      <workItem from="1767543056957" duration="72000" />
+      <workItem from="1767557184827" duration="1269000" />
+      <workItem from="1767613385292" duration="2462000" />
     </task>
     <servers />
   </component>

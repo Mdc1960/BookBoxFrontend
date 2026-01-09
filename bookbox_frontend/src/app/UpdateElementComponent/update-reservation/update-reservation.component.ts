@@ -1,10 +1,10 @@
 import { OnInit, AfterViewInit, ViewChild, Component } from '@angular/core';
+import {Router} from '@angular/router';
 import {MatButtonModule} from '@angular/material/button';
 import { ReservationFormComponent } from '../../GlobalForms/reservation-form/reservation-form.component';
 import { UpdateReservationService } from '../../service/update-reservation-service/update-reservation.service';
 import { Reservation, CreatedReservation, ReservationIdAndValue } from '../../Interface/reservation';
 import { ReservationService } from '../../service/reservation-service/reservation.service';
-
 @Component({
   selector: 'app-update-reservation',
   standalone: true,
@@ -26,7 +26,8 @@ export class UpdateReservationComponent implements OnInit, AfterViewInit{
 
   constructor(
     private updateReservationService: UpdateReservationService,
-    private reservationService : ReservationService
+    private reservationService : ReservationService,
+    private router : Router
   ){}
 
 
@@ -55,9 +56,11 @@ export class UpdateReservationComponent implements OnInit, AfterViewInit{
         this.reservationService.updateReservation(reservationIdAndValue).subscribe({
           next: (reservation) =>{
             alert("A reservation was updated !");
+            this.router.navigateByUrl('/load-reservation');
           },
           error: (err) =>{
-            alert("Error while updating a reservation. Make sure you are provided all the required information.");
+            alert("Error while updating a reservation. Make sure you are provided all the required information."+"Or you may not be allowed to perform this action");
+            this.router.navigateByUrl('/load-reservation');
           }
         });
 

@@ -3,7 +3,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { BoxFormComponent } from '../../GlobalForms/box-form/box-form.component';
 import { BoxService } from '../../service/box-service/box.service';
 import { Box, CreatedBox } from '../../Interface/box';
-
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-add-box',
   standalone: true,
@@ -17,7 +17,8 @@ import { Box, CreatedBox } from '../../Interface/box';
 export class AddBoxComponent implements OnInit, AfterViewInit{
 
   constructor(
-    private boxService: BoxService
+    private boxService: BoxService,
+    private router : Router
   ){}
 
   @ViewChild(BoxFormComponent)
@@ -45,6 +46,7 @@ export class AddBoxComponent implements OnInit, AfterViewInit{
       this.boxService.createBox(box).subscribe({
             next: (boxes) =>{
               alert("A new box was created !");
+              this.router.navigateByUrl('/load-box')
             },
             error: (err) =>{
               alert("Error while creating a box. Make sure you have provided all the required information.");
