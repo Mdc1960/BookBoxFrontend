@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {UpdatedUser} from "../../../Interface/user";
+import {UpdatedUser} from "../../Interface/user";
 import {MatLabel} from "@angular/material/form-field";
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';

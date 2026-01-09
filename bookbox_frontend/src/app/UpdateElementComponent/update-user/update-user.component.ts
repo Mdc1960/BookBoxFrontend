@@ -6,7 +6,7 @@ import {UpdateUserService} from "../../service/update-user-service/update-user.s
 import {UpdatedUser, User} from "../../Interface/user";
 import {UserService} from "../../service/User-service/user.service";
 import {Router} from "@angular/router";
-import {UserFormUpdateComponent} from "../../GlobalForms/user-form-update/user-form-update/user-form-update.component";
+import {UserFormUpdateComponent} from "../../GlobalForms/user-form-update/user-form-update.component";
 
 @Component({
   selector: 'app-update-user',

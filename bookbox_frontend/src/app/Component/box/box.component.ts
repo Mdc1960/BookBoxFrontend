@@ -8,7 +8,7 @@ import { MatSortModule, MatSort } from '@angular/material/sort';
 import { MatInput, MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BoxService } from '../../service/box-service/box.service';
-import { UpdateBoxService } from '../../update-box-service/update-box.service';
+import { UpdateBoxService } from '../../service/update-box-service/update-box.service';
 import { Box, CreatedBox } from '../../Interface/box';
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';

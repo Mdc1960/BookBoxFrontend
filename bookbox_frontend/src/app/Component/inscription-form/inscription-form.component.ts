@@ -54,7 +54,6 @@ export class InscriptionFormComponent {
     {validators: this.passwordMatchValidator});
 
   wrongCredentials = false;
-  successMessage: string = '';
 
   constructor(private http: HttpClient) {
   }

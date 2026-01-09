@@ -9,7 +9,6 @@ import { CreatedUser } from "../../Interface/user";
   selector: 'app-add-user',
   standalone: true,
   imports: [
-    InscriptionFormComponent,
     MatButton,
     UserFormComponent
   ],

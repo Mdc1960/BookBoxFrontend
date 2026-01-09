@@ -9,7 +9,7 @@ import { MatInput, MatInputModule } from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { UpdateReservationService } from '../../update-reservation-service/update-reservation.service';
+import { UpdateReservationService } from '../../service/update-reservation-service/update-reservation.service';
 import { ReservationService } from '../../service/reservation-service/reservation.service';
 import { Reservation } from '../../Interface/reservation';
 
@@ -19,8 +19,6 @@ import { Reservation } from '../../Interface/reservation';
   imports: [
     MatButtonModule,
     MatCardModule,
-    NgForOf,
-    NgIf,
     MatTableModule,
     MatPaginator,
     MatPaginatorModule,
@@ -29,8 +27,6 @@ import { Reservation } from '../../Interface/reservation';
     MatInput,
     MatInputModule,
     MatFormFieldModule,
-    RouterOutlet,
-    RouterLink,
     HttpClientModule,
     CommonModule
   ],

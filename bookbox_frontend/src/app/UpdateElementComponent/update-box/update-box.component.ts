@@ -2,7 +2,7 @@ import { AfterViewInit, ViewChild, OnInit, Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { BoxFormComponent } from '../../GlobalForms/box-form/box-form.component';
 import { Box, CreatedBox } from '../../Interface/box';
-import { UpdateBoxService } from '../../update-box-service/update-box.service';
+import { UpdateBoxService } from '../../service/update-box-service/update-box.service';
 import {Coordinates} from "../../Interface/coordinates";
 import { BoxService } from '../../service/box-service/box.service';
 

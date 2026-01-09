@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Box} from '../Interface/box';
+import {Box} from '../../Interface/box';
 import { Router } from '@angular/router';
 
 
