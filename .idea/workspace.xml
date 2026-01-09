@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="" />
+    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/Readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-box/add-box.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-box/add-box.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-reservation/add-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-reservation/add-reservation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-user/add-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/AddElementInComponent/add-user/add-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-box/update-box.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-box/update-box.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-reservation/update-reservation.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-reservation/update-reservation.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-user/update-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/UpdateElementComponent/update-user/update-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bookbox_frontend/src/app/service/reservation-service/reservation.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/src/app/service/reservation-service/reservation.service.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +23,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Mdc1960"
+  }
+}]]></component>
   <component name="GitLabMergeRequestFiltersHistory">{
   &quot;lastFilter&quot;: {
     &quot;state&quot;: &quot;OPENED&quot;,
@@ -29,6 +45,12 @@
     &quot;second&quot;: &quot;f277b6a3-3a90-44d2-bcb4-c98f3729221c&quot;
   }
 }</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/rdVirgo/BookBox_frontend.git",
+    "accountId": "02644089-655a-4979-8cd8-ac4848923bf7"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -37,25 +59,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/MERABTENE/Desktop/4A_polytech/bookbox_frontend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\MERABTENE\\Desktop\\4A_polytech\\bookbox_frontend\\bookbox_frontend\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "Merging main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/MERABTENE/Desktop/4A_polytech/bookbox_frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\MERABTENE\\Desktop\\4A_polytech\\bookbox_frontend\\bookbox_frontend\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/bookbox_frontend/src/Images" />
