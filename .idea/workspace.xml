@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,11 +76,11 @@
       <recent name="$PROJECT_DIR$/bookbox_frontend/src/Images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bookbox_frontend/docs" />
       <recent name="$PROJECT_DIR$/bookbox_frontend/dist/bookbox_frontend" />
       <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\Component" />
       <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\GlobalForms\user-form-update" />
       <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service" />
-      <recent name="C:\Users\MERABTENE\Desktop\4A_polytech\bookbox_frontend\bookbox_frontend\src\app\service\update-user-service" />
     </key>
   </component>
   <component name="RunManager">
