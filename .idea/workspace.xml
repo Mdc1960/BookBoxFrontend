@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e4451609-0651-49fd-afb7-46c81fda58a5" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookbox_frontend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/bookbox_frontend/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,7 @@
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "gh-pages",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/cmdmac/Documents/POLYTECH/MyProjects/BoiteALettre/Frontend/BookBoxFrontend",
     "node.js.detected.package.eslint": "true",
