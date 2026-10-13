@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Angular / Node.js
+**/node_modules/
+**/dist/
+**/.angular/
+coverage/
+
+# Environnement et secrets
+.env
+.env.*
+!.env.example
+
+# Configuration de test locale
+nginx.test.conf
