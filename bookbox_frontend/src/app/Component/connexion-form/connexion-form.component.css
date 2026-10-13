@@ -1,26 +1,105 @@
+.auth-shell {
+  min-height: calc(100vh - 64px);
+  display: grid;
+  place-items: center;
+  padding: 40px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(18, 171, 219, 0.12), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0, 112, 173, 0.12), transparent 40%),
+    var(--bb-bg);
+}
+
+.auth-card {
+  width: min(440px, 100%);
+  padding: 36px 32px 28px;
+  border-radius: 20px !important;
+  box-shadow: var(--bb-shadow-lg) !important;
+}
+
+.auth-head {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.auth-logo {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 18px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--bb-primary), var(--bb-accent));
+  box-shadow: var(--bb-shadow-md);
+}
+.auth-logo mat-icon {
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+}
+.auth-head h1 {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--bb-text);
+  margin: 0 0 6px;
+}
+.auth-head p {
+  color: var(--bb-text-muted);
+  font-size: 14.5px;
+  margin: 0;
+}
+
 form {
-  max-width: 400px;
-  margin: auto;
-  justify-content: center;
-  align-content: center;
   display: flex;
   flex-direction: column;
+  gap: 6px;
 }
-.responsive-form {
-  margin-top : 200px;
-  margin-left: 330px;
-  max-width: 500px;
+
+.full-width {
   width: 100%;
-  border-radius: 4px;
-  border: 2px solid #0070AD;
-  background-color:  #f2f2f2;
-  padding: 20px;
 }
-.responsive-form p {
-  font-size: 20px;
+
+.field-error {
+  color: var(--bb-danger);
+  font-size: 12.5px;
+  margin: -6px 0 6px 4px;
+}
+
+.auth-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fdecea;
+  color: var(--bb-danger-dark);
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13.5px;
+  margin: 6px 0 10px;
+}
+.auth-error mat-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 48px;
+  font-size: 16px !important;
+  margin-top: 10px;
+}
+
+.auth-alt {
   text-align: center;
+  color: var(--bb-text-muted);
+  font-size: 14px;
+  margin: 20px 0 0;
 }
-.btn{
-  background-color: #0070AD;
-  color: white !important ;
+.auth-alt a {
+  color: var(--bb-primary);
+  font-weight: 700;
+  text-decoration: none;
 }
+.auth-alt a:hover {
+  text-decoration: underline;
+}
+

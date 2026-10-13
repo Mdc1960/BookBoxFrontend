@@ -1,33 +1,31 @@
-<form class="reservation-forms" [formGroup]="reservations" >
+<form class="form" [formGroup]="reservations">
 
-  <div class="boxes-fields">
-    <mat-form-field color="warn" class="reservation-form-field">
-      <mat-label>Place</mat-label>
-      <mat-select formControlName="place" required placeholder="Select a placer">
-        @for(box of boxList; track box.boxId){
-          <mat-option [value]="box.boxId">{{box.name}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Box</mat-label>
+    <mat-icon matPrefix>inventory_2</mat-icon>
+    <mat-select formControlName="place" required placeholder="Choose a Box">
+      @for(box of boxList; track box.boxId){
+        <mat-option [value]="box.boxId">{{box.name}}</mat-option>
+      }
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field color="warn" class="reservation-form-field">
-      <mat-label>User</mat-label>
-      <mat-select formControlName="user" required placeholder="Select a user">
-        @for(user of userList; track user.userId){
-        <mat-option [value]="user.userId">{{user.name}} {{user.surname}}</mat-option>
-        }
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>User</mat-label>
+    <mat-icon matPrefix>person_outline</mat-icon>
+    <mat-select formControlName="user" required placeholder="Choose a User">
+      @for(user of userList; track user.userId){
+      <mat-option [value]="user.userId">{{user.name}} {{user.surname}}</mat-option>
+      }
 
-      </mat-select>
+    </mat-select>
 
-    </mat-form-field>
+  </mat-form-field>
 
-    <mat-form-field color="warn" class="reservation-form-field">
-      <mat-label>Reserved Quantity</mat-label>
-      <input formControlName="reservedQuantity" type="number" step="1" min="0" required matInput>
-    </mat-form-field>
-  </div>
-
-
-
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Quantity</mat-label>
+    <mat-icon matPrefix>tag</mat-icon>
+    <input formControlName="reservedQuantity" type="number" step="1" min="0" required matInput placeholder="Enter the quantity">
+  </mat-form-field>
 
 </form>

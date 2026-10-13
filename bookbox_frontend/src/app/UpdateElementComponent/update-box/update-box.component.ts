@@ -1,17 +1,23 @@
 import { AfterViewInit, ViewChild, OnInit, Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { Router, RouterLink } from '@angular/router';
 import { BoxFormComponent } from '../../GlobalForms/box-form/box-form.component';
 import { Box, CreatedBox } from '../../Interface/box';
 import { UpdateBoxService } from '../../service/update-box-service/update-box.service';
 import {Coordinates} from "../../Interface/coordinates";
 import { BoxService } from '../../service/box-service/box.service';
-import {Router} from '@angular/router'
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 @Component({
   selector: 'app-update-box',
   standalone: true,
   imports: [
     BoxFormComponent,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    RouterLink
   ],
   templateUrl: './update-box.component.html',
   styleUrl: './update-box.component.css'
@@ -21,7 +27,8 @@ export class UpdateBoxComponent implements OnInit, AfterViewInit {
   constructor(
     private updateBoxService:UpdateBoxService,
     private boxService: BoxService,
-    private router:Router
+    private router:Router,
+    private authService : AuthenticationService
   ){}
 
   @ViewChild(BoxFormComponent)
@@ -39,7 +46,7 @@ export class UpdateBoxComponent implements OnInit, AfterViewInit {
     const latitudeBox = this.boxFormComponent?.getAllInputValues().get("boxLatitude")?.value;
     const longitudeBox = this.boxFormComponent?.getAllInputValues().get("boxLongitude")?.value;
 
-    alert("Value : " + latitudeBox + longitudeBox);
+    //alert("Value : " + latitudeBox + longitudeBox);
 
     const box: CreatedBox = {
       name:nameBox,
@@ -52,19 +59,25 @@ export class UpdateBoxComponent implements OnInit, AfterViewInit {
     };
 
     if (this.isValidLatitude(latitudeBox) && this.isValidLongitude(longitudeBox)){
-      this.boxService.updateBox(this.boxToUpdate?.boxId, box).subscribe({
-            next: (boxes) =>{
-              alert("A box was successfully updated !");
-              this.router.navigateByUrl('/load-box');
-            },
-            error: (err) =>{
-              alert("Error while updating a box. Make sure you have provided all the required information." +
-                +"Or you may be not allowed to do this action {Only admin can }");
-              this.router.navigateByUrl('/load-box');
-            }
-          });
+      if (this.authService.isAdmin()){
+        this.boxService.updateBox(this.boxToUpdate?.boxId, box).subscribe({
+          next: (boxes) =>{
+            alert("A box was successfully updated !");
+            this.router.navigateByUrl('/load-box');
+          },
+          error: (err) =>{
+            alert("Error while updating a box. Make sure you have provided all the required information." +
+              +"Or you may be not allowed to do this action {Only admin can }");
+            this.router.navigateByUrl('/load-box');
+          }
+        });
 
-          this.boxFormComponent.resetForm();
+        this.boxFormComponent.resetForm();
+      }else{
+        alert('Only an administrator can perform this action (Update a Book Box)');
+        this.boxFormComponent.resetForm();
+      }
+      
     }else{
       alert("Provide correct value for latitude and/or longitude");
     }

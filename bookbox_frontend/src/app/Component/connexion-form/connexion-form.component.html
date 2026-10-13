@@ -1,35 +1,47 @@
-<div class="responsive-form">
-  <p>Login form</p>
-<form [formGroup]="formGroup" (ngSubmit)="login()" >
-  <div >
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Nom du login</mat-label>
-      <input matInput type="text" formControlName="LoginName" [class.is-invalid]="formGroup.controls.LoginName.invalid"/>
-    </mat-form-field>
-    <small class="text-danger" *ngIf="formGroup.controls.LoginName.invalid">
-      <ng-container *ngIf="formGroup.controls.LoginName.hasError('required')">
-        the login is mandatory
-      </ng-container>
-      <ng-container *ngIf="formGroup.controls.LoginName.hasError('minlength')">
-        the login is too long
-      </ng-container>
-    </small>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label> Password </mat-label>
-      <input matInput type="password" formControlName="Password"/>
-    </mat-form-field>
-    <small class="text-danger" *ngIf="formGroup.controls.Password.invalid">
-      <ng-container *ngIf="formGroup.controls.Password.hasError('required')">
-        The password is mandatory
-      </ng-container>
-      <ng-container *ngIf="formGroup.controls.Password.hasError('minlength')">
-        the password is too short
-      </ng-container>
-    </small>
+<div class="auth-shell">
+  <mat-card class="auth-card bb-animate">
+    <div class="auth-head">
+      <div class="auth-logo">
+        <mat-icon>auto_stories</mat-icon>
+      </div>
+      <h1>Welcome back</h1>
+      <p>Login to see and reserve your book !!!</p>
+    </div>
 
-  </div>
-  <button mat-button="elevated" class="btn" type="submit"> Connexion</button>
-  <mat-error *ngIf="wrongCredentials">  Wrong credential , please try again !</mat-error>
-  <i> Don't have an account ? <a routerLink="/SignIn"> Sign in </a></i>
-</form>
+    <form [formGroup]="formGroup" (ngSubmit)="login()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Login</mat-label>
+        <mat-icon matPrefix>person_outline</mat-icon>
+        <input matInput type="text" formControlName="LoginName" autocomplete="username">
+      </mat-form-field>
+      <div class="field-error" *ngIf="formGroup.controls.LoginName.invalid && formGroup.controls.LoginName.touched">
+        <span *ngIf="formGroup.controls.LoginName.hasError('required')">Login is mandatory</span>
+      </div>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <mat-icon matPrefix>lock_outline</mat-icon>
+        <input matInput type="password" formControlName="Password" autocomplete="current-password">
+      </mat-form-field>
+      <div class="field-error" *ngIf="formGroup.controls.Password.invalid && formGroup.controls.Password.touched">
+        <span *ngIf="formGroup.controls.Password.hasError('required')">Password is mandatory</span>
+        <span *ngIf="formGroup.controls.Password.hasError('minlength')">Password has to containe more than 8 caracters.</span>
+      </div>
+
+      <div class="auth-error" *ngIf="wrongCredentials">
+        <mat-icon>error_outline</mat-icon>
+        Invalid credentials. Please try again.
+      </div>
+
+      <button class="auth-submit bb-btn bb-btn--primary" type="submit">
+        <mat-icon>login</mat-icon>
+        Log in
+      </button>
+    </form>
+
+    <p class="auth-alt">
+      Don't have an account yet ?
+      <a routerLink="/SignIn">Create an account</a>
+    </p>
+  </mat-card>
 </div>

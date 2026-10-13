@@ -1,12 +1,24 @@
-.form-container{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  margin-top:25px;
-
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(680px, 100%);
+  margin: 0 auto;
 }
 
-.form-container > *{
-  width:50%;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }

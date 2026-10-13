@@ -1,70 +1,101 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Initial Page</title>
-</head>
-<body>
-<main>
+<mat-toolbar *ngIf="isAuthenticated" class="bb-toolbar">
+  <button mat-icon-button class="bb-burger" [matMenuTriggerFor]="mobileMenu" aria-label="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
 
+  <a class="bb-brand" routerLink="/home">
+    <mat-icon class="bb-brand-icon">auto_stories</mat-icon>
+    <span class="bb-brand-text">Book<span class="bb-brand-accent">Box</span></span>
+  </a>
 
-  <mat-toolbar>
-    <button class="button" mat-button routerLink="/home">Home</button>
+  <span class="spacer"></span>
 
-    <button class="button"  mat-button [matMenuTriggerFor]="box">
+  <nav class="bb-nav">
+    <button class="button bb-nav-link" mat-button routerLink="/home" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+
+    <button class="button bb-nav-link" mat-button [matMenuTriggerFor]="box">
+      <mat-icon>inventory_2</mat-icon>
       Box
-      <mat-icon iconPositionEnd >arrow_drop_down</mat-icon>
+      <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
     </button>
-
-    <mat-menu #box>
-      <button mat-menu-item routerLink="/add-box">Add Box</button>
-      <button mat-menu-item routerLink="/load-box">Load Boxes</button>
+    <mat-menu #box="matMenu">
+      <button mat-menu-item routerLink="/add-box"><mat-icon>add_circle_outline</mat-icon> Add Box</button>
+      <button mat-menu-item routerLink="/load-box"><mat-icon>list_alt</mat-icon> Load Boxes</button>
     </mat-menu>
 
-
-    <button class="button"  mat-button [matMenuTriggerFor]="reservation">
+    <button class="button bb-nav-link" mat-button [matMenuTriggerFor]="reservation">
+      <mat-icon>event_available</mat-icon>
       Reservation
-      <mat-icon iconPositionEnd >arrow_drop_down</mat-icon>
+      <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
     </button>
-
-    <mat-menu #reservation>
-      <button mat-menu-item routerLink="/add-reservation">Add Reservation</button>
-      <button mat-menu-item routerLink="/load-reservation">Load Reservations</button>
+    <mat-menu #reservation="matMenu">
+      <button mat-menu-item routerLink="/add-reservation"><mat-icon>add_circle_outline</mat-icon> Add Reservation</button>
+      <button mat-menu-item routerLink="/load-reservation"><mat-icon>list_alt</mat-icon> Load Reservations</button>
     </mat-menu>
 
-    <button class="button"  mat-button [matMenuTriggerFor]="user">
+    <button class="button bb-nav-link" mat-button [matMenuTriggerFor]="user">
+      <mat-icon>group</mat-icon>
       User
-      <mat-icon iconPositionEnd >arrow_drop_down</mat-icon>
+      <mat-icon iconPositionEnd>arrow_drop_down</mat-icon>
     </button>
-
-    <mat-menu #user>
-      <button mat-menu-item routerLink="/add-user">Add Users</button>
-      <button mat-menu-item routerLink="/load-user">Load Users</button>
+    <mat-menu #user="matMenu">
+      <button mat-menu-item routerLink="/add-user"><mat-icon>person_add_alt</mat-icon> Add Users</button>
+      <button mat-menu-item routerLink="/load-user"><mat-icon>groups</mat-icon> Load Users</button>
     </mat-menu>
 
-    <button class="button" mat-button routerLink="/Map">Map</button>
+    <button class="button bb-nav-link" mat-button routerLink="/Map" routerLinkActive="active">
+      <mat-icon>map</mat-icon>
+      Map
+    </button>
+  </nav>
 
-    <span class="spacer"></span>
+  <span class="spacer"></span>
 
-    <!-- span *ngIf="isAuthenticated">Hello {{ username }}</span>!-->
-    <button *ngIf="!isAuthenticated" mat-button routerLink="/authentication">Login</button>
-    <button *ngIf="isAuthenticated" mat-button (click)="logout()">Sign Out</button>
+  <button *ngIf="isAuthenticated" class="bb-user" mat-button [matMenuTriggerFor]="account">
+    <mat-icon>account_circle</mat-icon>
+    <span class="bb-username">{{ username }}</span>
+  </button>
+  <mat-menu #account="matMenu">
+    <button mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Sign Out</button>
+  </mat-menu>
 
-  </mat-toolbar>
+  <!--<button *ngIf="!isAuthenticated" class="button bb-auth-btn" mat-button routerLink="/authentication">
+    <mat-icon>login</mat-icon>
+    Login
+  </button>-->
+</mat-toolbar>
 
-  <div class="drawer">
+<!-- Menu mobile -->
+<mat-menu #mobileMenu="matMenu" class="bb-mobile-menu">
+  <button mat-menu-item routerLink="/home"><mat-icon>home</mat-icon> Home</button>
+  <button mat-menu-item routerLink="/add-box"><mat-icon>add_circle_outline</mat-icon> Add Box</button>
+  <button mat-menu-item routerLink="/load-box"><mat-icon>list_alt</mat-icon> Load Boxes</button>
+  <button mat-menu-item routerLink="/add-reservation"><mat-icon>add_circle_outline</mat-icon> Add Reservation</button>
+  <button mat-menu-item routerLink="/load-reservation"><mat-icon>list_alt</mat-icon> Load Reservations</button>
+  <button mat-menu-item routerLink="/add-user"><mat-icon>person_add_alt</mat-icon> Add Users</button>
+  <button mat-menu-item routerLink="/load-user"><mat-icon>groups</mat-icon> Load Users</button>
+  <button mat-menu-item routerLink="/Map"><mat-icon>map</mat-icon> Map</button>
+  <mat-divider></mat-divider>
+  <button *ngIf="isAuthenticated" mat-menu-item (click)="logout()"><mat-icon>logout</mat-icon> Sign Out</button>
+  <button *ngIf="!isAuthenticated" mat-menu-item routerLink="/authentication"><mat-icon>login</mat-icon> Login</button>
+</mat-menu>
+
+<main class="bb-main">
+  <div class="bb-animate">
     <router-outlet></router-outlet>
   </div>
-
-  <footer class="footer">
-    <div class="footer-container">
-      <p> 2025 BookBox. All rights reserved Mamadou & Radia .</p>
-    </div>
-  </footer>
-
 </main>
-</body>
-</html>
+
+<footer class="bb-footer">
+  <div class="bb-footer-inner">
+    <span class="bb-footer-brand">BookBox</span>
+    <span class="bb-footer-sep">•</span>
+    <span>Book sharing made simple</span>
+    <span class="bb-footer-sep">•</span>
+    <span>&copy; 2025 Mamadou &amp; Radia. All rights reserved.</span>
+  </div>
+</footer>

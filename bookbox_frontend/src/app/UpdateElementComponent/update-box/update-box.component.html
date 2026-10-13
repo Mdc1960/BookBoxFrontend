@@ -1,28 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Update Box</title>
-</head>
-<body>
-<main>
-  <div>
-    <div class="box-title">
-      <h1>Update an old Box to a new one</h1>
+<div class="page">
+  <mat-card class="form-card bb-animate">
+    <div class="form-header up-div">
+      <div class="form-header-icon form-header-icon--edit">
+        <mat-icon>edit</mat-icon>
+      </div>
+      <div>
+        <h1>Edit a Book Box</h1>
+        <p>Update the information for the selected book box.</p>
+      </div>
     </div>
 
-    <div>
+    <mat-card-content>
       <app-box-form></app-box-form>
-    </div>
 
-    <div class="box-button">
-      <button (click)="updateBox()" class="box-mat-button" mat-raised-button color="primary">Update</button>
-    </div>
-
-  </div>
-</main>
-</body>
-</html>
+      <div class="form-actions">
+        <button class="bb-btn bb-btn--ghost" type="button" routerLink="/load-box">
+          <mat-icon>arrow_back</mat-icon>
+          Cancel
+        </button>
+        <button class="bb-btn bb-btn--primary" type="button" (click)="updateBox()">
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

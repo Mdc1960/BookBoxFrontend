@@ -1,14 +1,20 @@
 import { AfterViewInit, ViewChild, OnInit, Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import { Router, RouterLink } from '@angular/router';
 import { BoxFormComponent } from '../../GlobalForms/box-form/box-form.component';
 import { BoxService } from '../../service/box-service/box.service';
 import { Box, CreatedBox } from '../../Interface/box';
-import {Router} from '@angular/router'
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 @Component({
   selector: 'app-add-box',
   standalone: true,
   imports: [
     MatButtonModule,
+    MatIconModule,
+    MatCardModule,
+    RouterLink,
     BoxFormComponent
   ],
   templateUrl: './add-box.component.html',
@@ -18,7 +24,8 @@ export class AddBoxComponent implements OnInit, AfterViewInit{
 
   constructor(
     private boxService: BoxService,
-    private router : Router
+    private router : Router,
+    private authService : AuthenticationService
   ){}
 
   @ViewChild(BoxFormComponent)
@@ -43,17 +50,23 @@ export class AddBoxComponent implements OnInit, AfterViewInit{
     };
 
     if (this.isValidLatitude(latitudeBox) && this.isValidLongitude(longitudeBox)){
-      this.boxService.createBox(box).subscribe({
-            next: (boxes) =>{
-              alert("A new box was created !");
-              this.router.navigateByUrl('/load-box')
-            },
-            error: (err) =>{
-              alert("Error while creating a box. Make sure you have provided all the required information.");
-            }
-          });
+      if (this.authService.isAdmin()){
+        this.boxService.createBox(box).subscribe({
+          next: (boxes) =>{
+            alert("A new box was created !");
+            this.router.navigateByUrl('/load-box')
+          },
+          error: (err) =>{
+            alert("Error while creating a box. Make sure you have provided all the required information.");
+          }
+        });
 
-          this.boxFormComponent.resetForm();
+        this.boxFormComponent.resetForm();
+      }else{
+        alert('Only an administrator can perform this action (Create a Book Box)');
+        this.boxFormComponent.resetForm();
+      }
+      
     }else{
       alert("Provide correct value for latitude and/or longitude");
     }

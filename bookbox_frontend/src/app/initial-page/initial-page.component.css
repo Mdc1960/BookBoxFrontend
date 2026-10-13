@@ -1,29 +1,136 @@
-body {
-  overflow-x: hidden;
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
+
 .spacer {
-  flex:auto;
-}
-.drawer{
-  min-height: 645px;
-  margin-top:50px;
-  padding:5px;
+  flex: 1 1 auto;
 }
 
-mat-toolbar{
-  background-color:#0070AD;
+/* ---- Toolbar / Navbar ---- */
+.bb-toolbar {
+  gap: 4px;
+  padding: 0 12px;
+  background-color: #359de2;
 }
 
-.button:hover{
-  background-color:white;
+.bb-burger {
+  display: none !important;
 }
 
-.login-button:hover{
-  background-color:red;
+.bb-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -0.5px;
+  margin-right: 8px;
+}
+.bb-brand-icon {
+  font-size: 28px;
+  width: 28px;
+  height: 28px;
+}
+.bb-brand-accent {
+  color: #ffe082;
 }
 
-.footer{
-  background-color:#0070AD;
+.bb-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.bb-nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.92;
+}
+.bb-nav-link.active,
+.bb-nav-link:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.18) !important;
+}
+
+.bb-user {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  padding: 0 12px !important;
+}
+.bb-username {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bb-auth-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  padding: 0 16px !important;
+}
+
+/* ---- Zone principale ---- */
+.bb-main {
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+/* ---- Footer ---- */
+.bb-footer {
+  background: linear-gradient(120deg, var(--bb-primary-dark), var(--bb-primary));
+  color: rgba(255, 255, 255, 0.9);
+  padding: 20px 16px;
+  margin-top: auto;
+}
+.bb-footer-inner {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
   text-align: center;
-  color :white;
 }
+.bb-footer-brand {
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.bb-footer-sep {
+  opacity: 0.5;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 960px) {
+  .bb-nav {
+    display: none;
+  }
+  .bb-burger {
+    display: inline-flex !important;
+  }
+  .bb-username {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .bb-brand-text {
+    display: none;
+  }
+}
+

@@ -1,9 +1,25 @@
-.users-fields{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:600px;
-  height:300px;
-  gap:10px;
-  margin-top:50px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(680px, 100%);
+  margin: 0 auto;
 }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-field {
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+

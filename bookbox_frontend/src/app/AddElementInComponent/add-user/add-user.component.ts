@@ -1,15 +1,22 @@
 import { AfterViewInit, OnInit, ViewChild, Component } from '@angular/core';
 import { InscriptionFormComponent } from '../../Component/inscription-form/inscription-form.component';
 import { MatButton } from "@angular/material/button";
+import { MatIconModule } from "@angular/material/icon";
+import { MatCardModule } from "@angular/material/card";
+import { RouterLink } from '@angular/router';
 import { UserFormComponent } from "../../GlobalForms/user-form/user-form.component";
 import { UserService } from "../../service/User-service/user.service";
 import { CreatedUser } from "../../Interface/user";
 import {Router} from '@angular/router'
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 @Component({
   selector: 'app-add-user',
   standalone: true,
   imports: [
     MatButton,
+    MatIconModule,
+    MatCardModule,
+    RouterLink,
     UserFormComponent
   ],
   templateUrl: './add-user.component.html',
@@ -20,8 +27,10 @@ export class AddUserComponent implements OnInit, AfterViewInit {
   @ViewChild(UserFormComponent)
   userFormComponent!: UserFormComponent;
 
+  
+
   constructor(private userService: UserService,
-              private router : Router) {}
+              private router : Router, private authService: AuthenticationService) {}
 
   createUser() {
     const name = this.userFormComponent.getAllInputValues().get("name")?.value;
@@ -33,7 +42,10 @@ export class AddUserComponent implements OnInit, AfterViewInit {
     if (name && surname && username && email && password) {
       const newUser: CreatedUser = { name, surname, username, email, password };
 
-      this.userService.createUser(newUser).subscribe({
+      //TODO : check if the user is an administrtor
+      if (this.authService.isAdmin()){
+        
+        this.userService.createUser(newUser).subscribe({
         next: () => {
           alert("A new user was created!");
           this.userFormComponent.resetForm();
@@ -44,6 +56,11 @@ export class AddUserComponent implements OnInit, AfterViewInit {
           alert("Error while creating a user. Please check the provided information.");
         }
       });
+      }else{
+        alert('Only an administrator can perform this action (Add a new user)');
+        this.userFormComponent.resetForm();
+      }
+      
     } else {
       alert("All fields are required!");
     }

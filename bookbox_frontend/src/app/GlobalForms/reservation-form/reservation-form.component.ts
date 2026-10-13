@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, OnInit, Component } from '@angular/core';
 import { CommonModule ,NgForOf, NgIf } from '@angular/common';
 import {MatSelectModule} from '@angular/material/select';
+import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
@@ -17,6 +18,7 @@ import {User} from "../../Interface/user";
   standalone: true,
   imports: [
     MatSelectModule,
+    MatIconModule,
     MatInputModule,
     MatFormFieldModule,
     MatButtonModule,

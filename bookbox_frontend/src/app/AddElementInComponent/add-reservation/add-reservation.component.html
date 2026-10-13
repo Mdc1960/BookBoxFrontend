@@ -1,28 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Reservation</title>
-</head>
-<body>
-<main>
-  <div class="reservation-content">
-    <div class="reservation-title">
-      <h1>Create new Reservation</h1>
+<div class="page">
+  <mat-card class="form-card bb-animate">
+    <div class="form-header up-div">
+      <div class="form-header-icon form-header-icon--reservation">
+        <mat-icon>event_available</mat-icon>
+      </div>
+      <div>
+        <h1>Create a Reservation</h1>
+        <p>Reserve a Book Box for a User</p>
+      </div>
     </div>
 
-    <div>
+    <mat-card-content>
       <app-reservation-form></app-reservation-form>
-    </div>
 
-    <div class="reservation-button">
-      <button (click)="createReservation()" mat-raised-button color="primary">Create</button>
-    </div>
-
-  </div>
-</main>
-</body>
-</html>
+      <div class="form-actions">
+        <button class="bb-btn bb-btn--ghost" type="button" routerLink="/load-reservation">
+          <mat-icon>arrow_back</mat-icon>
+          Cancel
+        </button>
+        <button class="bb-btn bb-btn--primary" type="button" (click)="createReservation()">
+          <mat-icon>check</mat-icon>
+          Create
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,32 +1,35 @@
-<form class="forms" [formGroup]="responses" >
+<form class="form" [formGroup]="responses">
 
-  <div class="boxes-fields">
-    <mat-form-field color="warn" class="boxes-form">
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Box Name</mat-label>
-      <input formControlName="boxName" required matInput>
+      <mat-icon matPrefix>inventory_2</mat-icon>
+      <input formControlName="boxName" required matInput placeholder="Enter the box name">
     </mat-form-field>
 
-    <mat-form-field color="primary" class="boxes-form">
-      <mat-label>Box Description</mat-label>
-      <textarea matInput formControlName="boxDescription"></textarea>
-    </mat-form-field>
-
-    <mat-form-field color="warn" class="boxes-form">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Quantity</mat-label>
-      <input formControlName="boxQuantity" type="number" step="1" min="0" required matInput>
+      <mat-icon matPrefix>tag</mat-icon>
+      <input formControlName="boxQuantity" type="number" step="1" min="0" required matInput placeholder="Enter the quantity">
     </mat-form-field>
   </div>
 
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="boxDescription" rows="3" placeholder="Decribe your Book Box…"></textarea>
+  </mat-form-field>
 
-  <div class="latitude-longitude">
-    <mat-form-field color="accent" class="latitude">
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Latitude</mat-label>
-      <input formControlName="boxLatitude" type="number" required matInput>
+      <mat-icon matPrefix>my_location</mat-icon>
+      <input formControlName="boxLatitude" type="number" step="any" required matInput placeholder="Latitude">
     </mat-form-field>
 
-    <mat-form-field color="accent" class="longitude">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Longitude</mat-label>
-      <input formControlName="boxLongitude" type="number" required matInput>
+      <mat-icon matPrefix>my_location</mat-icon>
+      <input formControlName="boxLongitude" type="number" step="any" required matInput placeholder="Longitude">
     </mat-form-field>
   </div>
 

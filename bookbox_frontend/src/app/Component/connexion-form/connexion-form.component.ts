@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { NgIf } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
@@ -15,7 +17,7 @@ interface AuthResponse {
 @Component({
   selector: 'app-connexion-form',
   standalone: true,
-  imports: [ReactiveFormsModule, MatButtonModule, MatInputModule, NgIf, RouterLink],
+  imports: [ReactiveFormsModule, MatButtonModule, MatInputModule, MatIconModule, MatCardModule, NgIf, RouterLink],
   templateUrl: './connexion-form.component.html',
   styleUrl: './connexion-form.component.css'
 })

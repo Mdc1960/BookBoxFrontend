@@ -1,21 +1,75 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Home</title>
-</head>
-<body>
-  <main>
-    <div class="welcome">
-      <h1>
-        WELCOME ON CAPGEMINI PROJECT
-      </h1>
-       <h2 *ngIf="username">Hello {{ username }} </h2>
-      <button *ngIf=!isAuthenticated, (click)="goToLoginPage()" mat-raised-button  color="primary">Go to login page</button>
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <span class="hero-badge">
+      <mat-icon>volunteer_activism</mat-icon>
+      Share your books, free your mind.
+    </span>
+
+    <h1 class="hero-title">
+      Welcome to <span class="hero-accent">BookBox</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      Manage your book boxes and reservations from a simple, modern, 
+      and intuitive interface.
+    </p>
+
+    <div class="hero-actions">
+      <button *ngIf="!isAuthenticated" mat-raised-button class="hero-cta" (click)="goToLoginPage()">
+        <mat-icon>login</mat-icon>
+        Go to login page
+      </button>
+      <a *ngIf="isAuthenticated" mat-raised-button class="hero-cta" routerLink="/load-box">
+        <mat-icon>explore</mat-icon>
+        Explore Boxes
+      </a>
+      <a mat-stroked-button class="hero-cta-ghost" routerLink="/Map">
+        <mat-icon>map</mat-icon>
+        View map
+      </a>
     </div>
-  </main>
-</body>
-</html>
+
+    <p class="hero-hello" *ngIf="username">
+      <mat-icon>waving_hand</mat-icon>
+      Hello <strong>{{ username }}</strong>, Welcome back !
+    </p>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="book book-1">📗</div>
+    <div class="book book-2">📕</div>
+    <div class="book book-3">📘</div>
+    <div class="glow"></div>
+  </div>
+</section>
+
+<section class="features">
+  <a class="feature-card" routerLink="/load-box">
+    <div class="feature-icon feature-icon--box">
+      <mat-icon>inventory_2</mat-icon>
+    </div>
+    <h3>Book Boxes</h3>
+    <p>Create, browse, and manage all your book-sharing boxes.</p>
+    <span class="feature-link">Manage Book Boxes<mat-icon>arrow_forward</mat-icon></span>
+  </a>
+
+  <a class="feature-card" routerLink="/load-reservation">
+    <div class="feature-icon feature-icon--reservation">
+      <mat-icon>event_available</mat-icon>
+    </div>
+    <h3>Reservations</h3>
+    <p>Track book reservations made by users.</p>
+    <span class="feature-link">View Reservations<mat-icon>arrow_forward</mat-icon></span>
+  </a>
+
+  <a class="feature-card" routerLink="/load-user">
+    <div class="feature-icon feature-icon--user">
+      <mat-icon>groups</mat-icon>
+    </div>
+    <h3>Users</h3>
+    <p>Manage members of the BookBox community.</p>
+    <span class="feature-link">Manage Users<mat-icon>arrow_forward</mat-icon></span>
+  </a>
+</section>

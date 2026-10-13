@@ -1,9 +1,12 @@
-.boxes-fields{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  width:600px;
-  height:300px;
-  gap:15px;
-  margin-top:10px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(680px, 100%);
+  margin: 0 auto;
 }
+
+.form-field {
+  width: 100%;
+}
+

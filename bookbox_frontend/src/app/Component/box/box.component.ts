@@ -1,6 +1,8 @@
 import { AfterViewInit, ViewChild, OnInit, ChangeDetectionStrategy, Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { CommonModule ,NgForOf, NgIf } from '@angular/common';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -12,6 +14,7 @@ import { UpdateBoxService } from '../../service/update-box-service/update-box.se
 import { Box, CreatedBox } from '../../Interface/box';
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 
 
 @Component({
@@ -20,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
     MatTableModule,
     MatPaginator,
     MatPaginatorModule,
@@ -51,7 +56,8 @@ export class BoxComponent implements OnInit, AfterViewInit{
   constructor(
     private router:Router,
     private boxService: BoxService,
-    private updateBoxService:UpdateBoxService
+    private updateBoxService:UpdateBoxService,
+    private authService : AuthenticationService
   ){}
 
   getAllBoxes(){
@@ -85,13 +91,18 @@ export class BoxComponent implements OnInit, AfterViewInit{
   handleDeleteBox(box:Box):void{
     const conf = confirm("Are you sure you want to delete this box ?");
     if(conf){
-      this.boxService.deleteBox(box.boxId).subscribe({
-        next: () => {
-          this.getAllBoxes(),
-          alert("Box is deleted.")
-        },
-        error: err => alert('Error : ' + err.message)
-      })
+      if (this.authService.isAdmin()){
+        this.boxService.deleteBox(box.boxId).subscribe({
+          next: () => {
+            this.getAllBoxes(),
+            alert("Box is deleted.")
+          },
+          error: err => alert('Error : ' + err.message)
+        })
+      }else{
+        alert('Only an administrator can perform this action (Delete a Book Box)');
+      }
+      
     }
   }
 

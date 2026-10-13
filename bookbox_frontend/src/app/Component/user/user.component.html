@@ -1,27 +1,33 @@
-<main>
-  <div>
-    <div class="title">
-      <mat-card-header>
-        <mat-card-title>List of all Users</mat-card-title>
-        <mat-card-subtitle>Manage your Users</mat-card-subtitle>
-      </mat-card-header>
+<div class="page">
+  <mat-card class="list-card bb-animate">
+    <div class="list-header up-div">
+      <div class="list-title">
+        <div class="list-title-icon list-title-icon--user">
+          <mat-icon>groups</mat-icon>
+        </div>
+        <div>
+          <h1>Users</h1>
+          <p>Manage community members.</p>
+        </div>
+      </div>
     </div>
 
-    <mat-card>
-      <mat-card-content>
+    <mat-card-content>
+      <div class="toolbar-row">
+        <mat-form-field appearance="outline" class="search-field">
+          <mat-label>Filter users</mat-label>
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput type="text" placeholder="Search…" (keyup)="filterUser($event)">
+        </mat-form-field>
 
-        <div class="nav-user">
-          <mat-form-field>
-            <mat-label>Filter Users</mat-label>
-            <input matInput type="text" placeholder="Filter" (keyup)="filterUser($event)">
-          </mat-form-field>
+        <button class="bb-btn bb-btn--add" (click)="handleAddUser()">
+          <mat-icon>person_add_alt</mat-icon>
+          Add User
+        </button>
+      </div>
 
-          <button class="add-user" mat-raised-button color="primary" (click)="handleAddUser()">
-            + Add User
-          </button>
-        </div>
-
-        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z1">
+      <div class="table-wrap">
+        <table mat-table [dataSource]="dataSource" matSort class="bb-table">
 
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
@@ -35,39 +41,45 @@
 
           <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Username</th>
-            <td mat-cell *matCellDef="let element">{{element.username}}</td>
+            <td mat-cell *matCellDef="let element">
+              <span class="user-chip">
+                <mat-icon>alternate_email</mat-icon>
+                {{element.username}}
+              </span>
+            </td>
           </ng-container>
 
           <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
-            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+            <td mat-cell *matCellDef="let element">
+              <span class="email-chip">
+                <mat-icon>mail_outline</mat-icon>
+                {{element.email}}
+              </span>
+            </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef>Actions</th>
             <td mat-cell *matCellDef="let element">
-              <div class="load-user-buttons">
-                <button class="update-user" (click)="handleUpdateUser(element)" mat-raised-button color="primary">Update</button>
-                <button class="delete-user" (click)="handleDeleteUser(element)" mat-raised-button color="primary">Delete</button>
+              <div class="row-actions">
+                <button class="action-btn action-btn--edit" (click)="handleUpdateUser(element)" matTooltip="Update">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button class="action-btn action-btn--delete" (click)="handleDeleteUser(element)" matTooltip="Delete">
+                  <mat-icon>delete_outline</mat-icon>
+                </button>
               </div>
             </td>
           </ng-container>
-
 
           <tr mat-header-row *matHeaderRowDef="display"></tr>
           <tr mat-row *matRowDef="let row; columns: display;"></tr>
 
         </table>
+      </div>
 
-        <mat-paginator [pageSizeOptions]="[5,10,20,50,100]"
-                       showFirstLastButtons>
-        </mat-paginator>
-
-      </mat-card-content>
-
-      <mat-card-footer>
-        Mamadou & Radia
-      </mat-card-footer>
-    </mat-card>
-  </div>
-</main>
+      <mat-paginator [pageSizeOptions]="[5,10,20,50,100]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

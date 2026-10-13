@@ -1,28 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Box</title>
-</head>
-<body>
-  <main>
-    <div>
-      <div class="box-title">
-        <h1>Create new Box</h1>
+<div class="page">
+  <mat-card class="form-card bb-animate">
+    <div class="form-header up-div">
+      <div class="form-header-icon">
+        <mat-icon>add_box</mat-icon>
       </div>
-
       <div>
-        <app-box-form></app-box-form>
+        <h1>Create a New Box</h1>
+        <p>Enter the book box details.</p>
       </div>
-
-      <div class="box-button">
-        <button (click)="createBox()" class="box-mat-button" mat-raised-button color="primary">Create</button>
-      </div>
-
     </div>
-  </main>
-</body>
-</html>
+
+    <mat-card-content>
+      <app-box-form></app-box-form>
+
+      <div class="form-actions">
+        <button class="bb-btn bb-btn--ghost" type="button" routerLink="/load-box">
+          <mat-icon>arrow_back</mat-icon>
+          Cancel
+        </button>
+        <button class="bb-btn bb-btn--primary" type="button" (click)="createBox()">
+          <mat-icon>check</mat-icon>
+          Create Box
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

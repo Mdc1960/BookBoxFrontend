@@ -1,17 +1,24 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {BoxFormComponent} from "../../GlobalForms/box-form/box-form.component";
 import {MatButton} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatCardModule} from "@angular/material/card";
+import {RouterLink} from "@angular/router";
 import {UserFormComponent} from "../../GlobalForms/user-form/user-form.component";
 import {UpdateUserService} from "../../service/update-user-service/update-user.service";
 import {UpdatedUser, User} from "../../Interface/user";
 import {UserService} from "../../service/User-service/user.service";
 import {Router} from "@angular/router";
 import {UserFormUpdateComponent} from "../../GlobalForms/user-form-update/user-form-update.component";
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 @Component({
   selector: 'app-update-user',
   standalone: true,
   imports: [
     MatButton,
+    MatIconModule,
+    MatCardModule,
+    RouterLink,
     UserFormUpdateComponent
   ],
   templateUrl: './update-user.component.html',
@@ -20,7 +27,12 @@ import {UserFormUpdateComponent} from "../../GlobalForms/user-form-update/user-f
 export class UpdateUserComponent implements OnInit, AfterViewInit {
 
 
-  constructor(private updateUserService:UpdateUserService, private userService: UserService , private router : Router){}
+  constructor(
+    private updateUserService:UpdateUserService, 
+    private userService: UserService,
+    private router : Router,
+    private authService: AuthenticationService
+  ){}
 
 @ViewChild(UserFormUpdateComponent)
   userFormUpdateComponent!:UserFormUpdateComponent;
@@ -37,7 +49,9 @@ export class UpdateUserComponent implements OnInit, AfterViewInit {
       username:formValue.username!,
       email:formValue.email!
     }
-    this.userService.updateUser(this.userToUpdate.userId, updatedUser)
+
+    if (this.authService.isAdmin()){
+      this.userService.updateUser(this.userToUpdate.userId, updatedUser)
       .subscribe({
         next: () => {
           alert('User updated successfully');
@@ -49,6 +63,11 @@ export class UpdateUserComponent implements OnInit, AfterViewInit {
           this.router.navigateByUrl('/load-user');
         }
       });
+    }else{
+      alert('Only an administrator can perform this action (Update a user)');
+      this.userFormUpdateComponent.getAllInputValues().reset()
+    }
+    
   }
 
   ngOnInit(){}

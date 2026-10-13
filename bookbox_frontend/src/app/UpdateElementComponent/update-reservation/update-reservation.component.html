@@ -1,28 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Update Reservation</title>
-</head>
-<body>
-  <main>
-    <div class="update-reservation-container">
-      <div class="reservation-title">
-        <h1>Update an old Reservation to a new one</h1>
+<div class="page">
+  <mat-card class="form-card bb-animate">
+    <div class="form-header up-div">
+      <div class="form-header-icon form-header-icon--edit">
+        <mat-icon>edit_calendar</mat-icon>
       </div>
-
-      <div class="reservation-formular">
-        <app-reservation-form></app-reservation-form>
+      <div>
+        <h1>Edit Reservation</h1>
+        <p>Update the selected reservation.</p>
       </div>
-
-      <div class="reservation-button">
-        <button (click)="updateReservation()" class="reservation-mat-button" mat-raised-button color="primary">Update</button>
-      </div>
-
     </div>
-  </main>
-</body>
-</html>
+
+    <mat-card-content>
+      <app-reservation-form></app-reservation-form>
+
+      <div class="form-actions">
+        <button class="bb-btn bb-btn--ghost" type="button" routerLink="/load-reservation">
+          <mat-icon>arrow_back</mat-icon>
+          Cancel
+        </button>
+        <button class="bb-btn bb-btn--primary" type="button" (click)="updateReservation()">
+          <mat-icon>save</mat-icon>
+          Save
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

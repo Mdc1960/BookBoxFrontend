@@ -1,17 +1,59 @@
 .map-container {
   position: relative;
-  top: 10px;
-  margin: 30px;
+  margin: 24px auto;
+  width: min(1200px, 100%);
+  padding: 0 20px 40px;
 }
 
 .map-frame {
-  border: 2px solid black;
+  border: none;
+  border-radius: var(--bb-radius);
   height: 600px;
   width: 100%;
-
+  overflow: hidden;
+  box-shadow: var(--bb-shadow-md);
 }
 
 #map {
   height: 100%;
-  width : 100%
+  width: 100%;
 }
+
+/* ---- Popups Leaflet personnalisés ---- */
+:host ::ng-deep .bb-popup {
+  font-family: var(--bb-font);
+  min-width: 140px;
+}
+:host ::ng-deep .bb-popup-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: var(--bb-primary);
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+:host ::ng-deep .bb-popup-coords {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: var(--bb-text-muted);
+  font-size: 13px;
+}
+:host ::ng-deep .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  box-shadow: var(--bb-shadow-md);
+}
+:host ::ng-deep .leaflet-popup-content {
+  margin: 12px 16px;
+}
+:host ::ng-deep .leaflet-bar a {
+  color: var(--bb-primary);
+}
+
+@media (max-width: 600px) {
+  .map-frame {
+    height: 420px;
+  }
+}
+

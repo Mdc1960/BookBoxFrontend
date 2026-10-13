@@ -1,24 +1,23 @@
-<form [formGroup]="form">
-  <div class="form-container">
-    <mat-form-field>
+<form class="form" [formGroup]="form">
+  <div class="form-grid">
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Name</mat-label>
-      <input matInput formControlName="name">
+      <input matInput formControlName="name" placeholder="Enter the name">
     </mat-form-field>
 
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="form-field">
       <mat-label>Surname</mat-label>
-      <input matInput formControlName="surname">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Username</mat-label>
-      <input matInput formControlName="username">
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="email">
+      <input matInput formControlName="surname" placeholder="Enter the surname">
     </mat-form-field>
   </div>
 
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Username</mat-label>
+    <input matInput formControlName="username" placeholder="Enter the user name">
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="form-field">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" placeholder="Enter your email">
+  </mat-form-field>
 </form>

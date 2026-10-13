@@ -5,6 +5,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatButtonModule} from '@angular/material/button';
 import { Router, RouterOutlet, RouterLink } from '@angular/router';
 import {AuthenticationService} from "../../service/AuthenticationService/authentication.service";
+import { InitialPageComponent } from '../../initial-page/initial-page.component';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +15,9 @@ import {AuthenticationService} from "../../service/AuthenticationService/authent
     MatIconModule,
     MatDividerModule,
     MatButtonModule,
-  ],
+    RouterLink,
+    InitialPageComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

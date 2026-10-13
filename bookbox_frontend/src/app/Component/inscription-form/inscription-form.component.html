@@ -1,63 +1,81 @@
-<div class="responsive-form">
-  <p>Sig Up form</p>
-  <form [formGroup]="formGroup" (ngSubmit)="register()" >
-    <div >
+<div class="auth-shell">
+  <mat-card class="auth-card auth-card--wide bb-animate">
+    <div class="auth-head">
+      <div class="auth-logo">
+        <mat-icon>person_add_alt</mat-icon>
+      </div>
+      <h1>Create your account</h1>
+      <p>Join BookBox community</p>
+    </div>
+
+    <form [formGroup]="formGroup" (ngSubmit)="register()">
+      <div class="grid-2">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>First Name</mat-label>
+          <input matInput type="text" formControlName="Name">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Last Name</mat-label>
+          <input matInput type="text" formControlName="Surname">
+        </mat-form-field>
+      </div>
+
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label> Name </mat-label>
-        <input matInput type="text" formControlName="Name"/>
+        <mat-label>User Namer</mat-label>
+        <mat-icon matPrefix>alternate_email</mat-icon>
+        <input matInput type="text" formControlName="LoginName">
       </mat-form-field>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label> Surname </mat-label>
-        <input matInput type="text" formControlName="Surname"/>
-      </mat-form-field>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label>login name</mat-label>
-        <input matInput type="text" formControlName="LoginName" [class.is-invalid]="formGroup.controls.LoginName.invalid"/>
-      </mat-form-field>
-      <small class="text-danger" *ngIf="formGroup.controls.LoginName.invalid">
-        <ng-container *ngIf="formGroup.controls.LoginName.hasError('required')">
-          the login is mandatory
-        </ng-container>
-        <ng-container *ngIf="formGroup.controls.LoginName.hasError('minlength')">
-          the login is too long
-        </ng-container>
-      </small>
+      <div class="field-error" *ngIf="formGroup.controls.LoginName.invalid && formGroup.controls.LoginName.touched">
+        <span *ngIf="formGroup.controls.LoginName.hasError('required')">Login is mandatory</span>
+        <span *ngIf="formGroup.controls.LoginName.hasError('maxlength')">Login is too long</span>
+      </div>
+
       <mat-form-field appearance="outline" class="full-width">
         <mat-label>Email</mat-label>
-        <input matInput type="email" formControlName="Email"/>
+        <mat-icon matPrefix>mail_outline</mat-icon>
+        <input matInput type="email" formControlName="Email">
       </mat-form-field>
-      <small class="text-danger" *ngIf="formGroup.controls.Email.invalid">
-        <ng-container *ngIf="formGroup.controls.Email.hasError('required')">
-          Email is mandatory
-        </ng-container>
-        <ng-container *ngIf="formGroup.controls.Email.hasError('email')">
-          Enter a valid email
-        </ng-container>
-      </small>
+      <div class="field-error" *ngIf="formGroup.controls.Email.invalid && formGroup.controls.Email.touched">
+        <span *ngIf="formGroup.controls.Email.hasError('required')">Your email is mandatory</span>
+        <span *ngIf="formGroup.controls.Email.hasError('email')">Enter a valid email adress</span>
+      </div>
 
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label> Password </mat-label>
-        <input matInput type="password" formControlName="Password"/>
-      </mat-form-field>
-      <small class="text-danger" *ngIf="formGroup.controls.Password.invalid">
-        <ng-container *ngIf="formGroup.controls.Password.hasError('required')">
-          The password is mandatory
-        </ng-container>
-        <ng-container *ngIf="formGroup.controls.Password.hasError('minlength')">
-          the password is too short
-        </ng-container>
-      </small>
-      <mat-form-field appearance="outline" class="full-width">
-        <mat-label> Confirm Password </mat-label>
-        <input matInput type="password" formControlName="Password_Confirmation"/>
-      </mat-form-field>
-      <small class="text-danger" *ngIf="formGroup.hasError('passwordMismatch')">
-        Passwords do not match — please re-enter the same password.
-      </small>
+      <div class="grid-2">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password</mat-label>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input matInput type="password" formControlName="Password">
+        </mat-form-field>
 
-    </div>
-    <button mat-raised-button class="btn" type="submit"> Register</button>
-    <mat-error *ngIf="wrongCredentials">  Wrong credential , please try again !</mat-error>
-    <i> Already an account ? <a routerLink="/authentication"> log in </a></i>
-  </form>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Password confirmation</mat-label>
+          <mat-icon matPrefix>lock_outline</mat-icon>
+          <input matInput type="password" formControlName="Password_Confirmation">
+        </mat-form-field>
+      </div>
+      <div class="field-error" *ngIf="formGroup.controls.Password.invalid && formGroup.controls.Password.touched">
+        <span *ngIf="formGroup.controls.Password.hasError('required')">Password is mandatory</span>
+        <span *ngIf="formGroup.controls.Password.hasError('minlength')">Password has to containe more than 8 caracters.</span>
+      </div>
+      <div class="field-error" *ngIf="formGroup.hasError('passwordMismatch') && formGroup.controls.Password_Confirmation.touched">
+        Password doesn't match
+      </div>
+
+      <div class="auth-error" *ngIf="wrongCredentials">
+        <mat-icon>error_outline</mat-icon>
+        Une erreur est survenue lors de l'inscription.
+      </div>
+
+      <button class="auth-submit bb-btn bb-btn--primary" type="submit">
+        <mat-icon>how_to_reg</mat-icon>
+        Sign up
+      </button>
+    </form>
+
+    <p class="auth-alt">
+      Already have an account ?
+      <a routerLink="/authentication">Log in</a>
+    </p>
+  </mat-card>
 </div>

@@ -3,9 +3,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, RouterLinkActive, Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthenticationService } from "../service/AuthenticationService/authentication.service";
 import {CommonModule} from "@angular/common";
@@ -18,10 +19,12 @@ import {CommonModule} from "@angular/common";
     MatButtonModule,
     MatToolbarModule,
     MatMenuModule,
+    MatDividerModule,
     MatSidenavModule,
     MatListModule,
     RouterOutlet,
     RouterLink,
+    RouterLinkActive,
     HttpClientModule,
     CommonModule
   ],

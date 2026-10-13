@@ -42,10 +42,20 @@ export class MapComponent implements AfterViewInit {
     this.coordinatesService.getAllCoordinates().subscribe(
       {
         next: (coordinates) => {
-          coordinates.forEach(coord => {
+          coordinates.forEach((coord, index) => {
             // casting to numbers because in the backend they are strings
-            L.marker([+coord.latitude, +coord.longitude],{icon : customIcon
-            }).addTo(this.map).bindPopup('boite');
+            const lat = +coord.latitude;
+            const lng = +coord.longitude;
+            L.marker([lat, lng], {icon : customIcon
+            }).addTo(this.map).bindPopup(
+              `<div class="bb-popup">
+                 <div class="bb-popup-title"><span>📦</span> Boîte #${index + 1}</div>
+                 <div class="bb-popup-coords">
+                   <span>Lat&nbsp;: <strong>${lat}</strong></span>
+                   <span>Lng&nbsp;: <strong>${lng}</strong></span>
+                 </div>
+               </div>`
+            );
           });
         },
         error : (err) => {

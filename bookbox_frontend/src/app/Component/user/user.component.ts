@@ -4,6 +4,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -15,6 +17,7 @@ import { UserService } from "../../service/User-service/user.service";
 import { Router } from "@angular/router";
 import {User} from "../../Interface/user";
 import {UpdateUserService} from "../../service/update-user-service/update-user.service";
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 
 
 @Component({
@@ -26,6 +29,8 @@ import {UpdateUserService} from "../../service/update-user-service/update-user.s
     MatSortModule,
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
     MatFormFieldModule,
     MatInputModule,
     MatFormField,
@@ -54,6 +59,7 @@ export class UserComponent implements OnInit, AfterViewInit {
     private router: Router,
     private userService: UserService,
     private userServiceUpdate : UpdateUserService,
+    private authService: AuthenticationService
   ) { }
 
   ngOnInit(): void {
@@ -83,14 +89,24 @@ export class UserComponent implements OnInit, AfterViewInit {
   }
 
   handleDeleteUser(user: User): void {
-      alert("you will delete this user !");
-      this.userService.deleteUser(user.userId).subscribe({
-        next : () => {
-          this.listUsers=this.listUsers.filter(u=> u.userId !== user.userId);
-          this.dataSource.data=this.listUsers;
-        }
-      })
+    const conf = confirm("Are you sure you want to delete this user ?");
+    if(conf){
+      if (this.authService.isAdmin()){
+        this.userService.deleteUser(user.userId).subscribe({
+          next : () => {
+            this.listUsers=this.listUsers.filter(u=> u.userId !== user.userId);
+            this.dataSource.data=this.listUsers;
+            alert("User : " + user.name + " deleted from the database.")
+          },
+          error: err => alert('Error : ' + err.message)
+        })
+      }else{
+        alert('Only an administrator can perform this action (Delete a user)');
+      }
+      
     }
+    
+  }
   filterUser(event : Event){
     const filtered = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filtered.trim().toLowerCase();

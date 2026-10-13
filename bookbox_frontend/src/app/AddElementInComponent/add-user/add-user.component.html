@@ -1,29 +1,28 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Add User</title>
-</head>
-<body>
-<main>
-  <div class="users-content">
-    <div class="users-title">
-      <h1>Create new User</h1>
+<div class="page">
+  <mat-card class="form-card bb-animate">
+    <div class="form-header up-div">
+      <div class="form-header-icon form-header-icon--user">
+        <mat-icon>person_add_alt</mat-icon>
+      </div>
+      <div>
+        <h1>Create a User</h1>
+        <p>Add a new member to the community.</p>
+      </div>
     </div>
 
-    <div>
+    <mat-card-content>
       <app-user-form></app-user-form>
-    </div>
 
-    <div class="users-button">
-      <button (click)="createUser()" mat-raised-button color="primary">Create</button>
-    </div>
-
-  </div>
-</main>
-
-</body>
-</html>
+      <div class="form-actions">
+        <button class="bb-btn bb-btn--ghost" type="button" routerLink="/load-user">
+          <mat-icon>arrow_back</mat-icon>
+          Annuler
+        </button>
+        <button class="bb-btn bb-btn--primary" type="button" (click)="createUser()">
+          <mat-icon>check</mat-icon>
+          Create
+        </button>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

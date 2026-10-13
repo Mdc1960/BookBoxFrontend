@@ -1,7 +1,9 @@
 {
   "/api": {
-    "target": "https://bookboxbackend.fly.dev/",
+    "target": "http://localhost:8080",
     "secure": false,
-    "changeOrigin": true
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }
+

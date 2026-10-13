@@ -1,44 +1,25 @@
-.boxes-form{
-  width:600px;
-  height:90px;
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(680px, 100%);
+  margin: 0 auto;
 }
 
-.boxes-fields{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  height:300px;
-  gap:15px;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
 }
 
-.box-title h1{
-  font-family:Georgia;
-  font-size:50px;
-  color:#043e78;
+.form-field {
+  width: 100%;
 }
 
-mat-form-field{
-  background-color:#e1f0c5;
+@media (max-width: 600px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
 }
 
-
-
-.latitude-longitude, .box-button, .box-title{
-  display:flex;
-  justify-content:center;
-  margin-top:25px;
-}
-
-.longitude{
-  margin-left:90px;
-}
-
-.latitude{
-  margin-right:90px;
-}
-
-.box-mat-button{
-  width:200px;
-  margin-top:50px;
-}

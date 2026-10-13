@@ -1,6 +1,8 @@
 import { AfterViewInit, ViewChild, OnInit, ChangeDetectionStrategy, Component } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import { CommonModule ,NgForOf, NgIf } from '@angular/common';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -12,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UpdateReservationService } from '../../service/update-reservation-service/update-reservation.service';
 import { ReservationService } from '../../service/reservation-service/reservation.service';
 import { Reservation } from '../../Interface/reservation';
+import { AuthenticationService } from '../../service/AuthenticationService/authentication.service';
 
 @Component({
   selector: 'app-reservation',
@@ -19,6 +22,8 @@ import { Reservation } from '../../Interface/reservation';
   imports: [
     MatButtonModule,
     MatCardModule,
+    MatIconModule,
+    MatTooltipModule,
     MatTableModule,
     MatPaginator,
     MatPaginatorModule,
@@ -42,11 +47,13 @@ export class ReservationComponent implements AfterViewInit, OnInit{
 
   @ViewChild(MatPaginator) paginator! : MatPaginator;
   @ViewChild(MatSort) sort! : MatSort;
+  currentUserId!: number;
 
   constructor(
     private reservationService: ReservationService,
     private router: Router,
-    private updateReservationService: UpdateReservationService
+    private updateReservationService: UpdateReservationService,
+    private authService: AuthenticationService
   ){}
 
   getAllReservation(){
@@ -88,13 +95,24 @@ export class ReservationComponent implements AfterViewInit, OnInit{
 
     if(conf){
 
-      this.reservationService.deleteReservation(reservation?.reservationId).subscribe({
-        next: () => {
-          this.getAllReservation(),
-          alert("Reservation is deleted.")
-        },
-        error: err => alert('Error : ' + err.message)
-      })
+      const currentId = this.authService.getUserId();
+
+      if (currentId){
+        this.currentUserId = parseInt(currentId);
+      }
+
+      if ((this.currentUserId === reservation?.user?.userId) || this.authService.isAdmin()){
+        
+        this.reservationService.deleteReservation(reservation?.reservationId).subscribe({
+          next: () => {
+            this.getAllReservation(),
+            alert("Reservation is deleted.")
+          },
+          error: err => alert('Error : ' + err.message)
+        })
+      }else{
+        alert('You cannot delete others reservations');
+      }
 
 
     }
